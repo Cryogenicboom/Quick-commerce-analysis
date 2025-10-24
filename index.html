@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGIPINE Analytics - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">DIGIPINE Analytics</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="upload.html">Upload Data</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Smart Analytics for Quick-Commerce Businesses</h1>
+            <p class="subtitle">Transform your delivery data into actionable insights</p>
+            <a href="dashboard.html" class="cta-button">View Dashboard</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About DIGIPINE</h2>
+            <p>DIGIPINE Analytics is a comprehensive data analytics platform designed specifically for small quick-commerce businesses. We help you understand your delivery operations, identify patterns, and optimize your service delivery.</p>
+            <p>Our platform processes your delivery data to provide meaningful insights about product distribution, delivery times, fraud detection, and zone performance—all in one easy-to-use dashboard.</p>
+        </div>
+    </section>
+
+    <section id="features" class="section features-section">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Product Analytics</h3>
+                    <p>Track product distribution patterns and understand what items are most popular in different zones.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Delivery Time Tracking</h3>
+                    <p>Monitor delivery times across different areas and identify optimization opportunities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Fraud Detection</h3>
+                    <p>Analyze fraud rates and identify suspicious patterns to protect your business.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Zone Performance</h3>
+                    <p>Discover your top-performing zones and optimize resource allocation accordingly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="section demo-section">
+        <div class="container">
+            <h2>See It In Action</h2>
+            <p>Experience how DIGIPINE transforms raw delivery data into powerful insights.</p>
+            <div class="demo-steps">
+                <div class="demo-step">
+                    <div class="step-number">1</div>
+                    <h3>Upload Your Data</h3>
+                    <p>Simply upload your CSV file containing delivery records.</p>
+                </div>
+                <div class="demo-step">
+                    <div class="step-number">2</div>
+                    <h3>Automatic Processing</h3>
+                    <p>Our system analyzes and categorizes your data automatically.</p>
+                </div>
+                <div class="demo-step">
+                    <div class="step-number">3</div>
+                    <h3>View Insights</h3>
+                    <p>Access comprehensive analytics through our intuitive dashboard.</p>
+                </div>
+            </div>
+            <a href="upload.html" class="cta-button">Try Upload Simulation</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 DIGIPINE Analytics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth page transitions
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only animate for internal page navigation
+                if (href.endsWith('.html') && !href.includes('#')) {
+                    e.preventDefault();
+                    document.body.classList.add('page-exit');
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

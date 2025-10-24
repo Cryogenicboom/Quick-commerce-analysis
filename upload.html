@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGIPINE Analytics - Upload Data</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">DIGIPINE Analytics</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="upload.html" class="active">Upload Data</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="upload-section">
+        <div class="container">
+            <div class="upload-container" id="uploadFormContainer">
+                <h1>Upload Your Data</h1>
+                <p>Upload a CSV file to analyze your delivery data</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <p><strong>Click to browse</strong> or drag and drop your CSV file here</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.5rem;">Supported format: .csv</p>
+                </div>
+
+                <input type="file" id="fileInput" class="file-input" accept=".csv">
+
+                <div class="selected-file" id="selectedFile"></div>
+
+                <button class="upload-button" id="uploadButton" disabled>Process Data</button>
+
+                <div class="result-message" id="resultMessage"></div>
+            </div>
+
+            <!-- Results Section (Hidden Initially) -->
+            <div class="upload-results" id="uploadResults" style="display: none;">
+                <div class="results-header">
+                    <div class="success-icon">✅</div>
+                    <h2>Data Processed Successfully!</h2>
+                    <p class="records-count" id="recordsCount">150 records processed successfully!</p>
+                </div>
+
+                <div class="results-content">
+                    <!-- Processing Summary -->
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <div class="summary-icon">📦</div>
+                            <div class="summary-value" id="totalRecords">150</div>
+                            <div class="summary-label">Total Records</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">✅</div>
+                            <div class="summary-value" id="validRecords">147</div>
+                            <div class="summary-label">Valid Records</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">⚠️</div>
+                            <div class="summary-value" id="errorRecords">3</div>
+                            <div class="summary-label">Errors/Duplicates</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">⏱️</div>
+                            <div class="summary-value" id="processingTime">2.3s</div>
+                            <div class="summary-label">Processing Time</div>
+                        </div>
+                    </div>
+
+                    <!-- Order Volume Chart -->
+                    <div class="chart-section">
+                        <h3>Order Volume by Product Type</h3>
+                        <div class="chart-container-upload">
+                            <canvas id="orderVolumeChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="results-actions">
+                        <button class="action-btn primary-btn" onclick="window.location.href='dashboard.html'">
+                            View Full Dashboard
+                        </button>
+                        <button class="action-btn secondary-btn" id="uploadAnotherBtn">
+                            Upload Another File
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 DIGIPINE Analytics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="upload.js"></script>
+    <script>
+        // Smooth page transitions
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only animate for internal page navigation
+                if (href.endsWith('.html') && !href.includes('#')) {
+                    e.preventDefault();
+                    document.body.classList.add('page-exit');
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
